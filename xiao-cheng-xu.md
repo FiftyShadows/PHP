@@ -54,6 +54,11 @@
 
 
 
+netstat -ano
+
+
+
+
 
 
 
