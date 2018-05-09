@@ -56,6 +56,12 @@
 
 netstat -ano
 
+mysql -uroot -p
+
+show databases;
+
+exit
+
 
 
 
