@@ -82,7 +82,10 @@ exit
 
 
 
-php -S localhost:8080 router.php
+
+##启动tp自带的web服务器
+
+- php -S localhost:8080 router.php
 
 
 
