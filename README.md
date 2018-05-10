@@ -20,7 +20,7 @@
 
 - ctrl+shift+v : paste2.0
 
-c s f
+csf
 
 csr
 
