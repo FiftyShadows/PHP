@@ -31,3 +31,11 @@ Ctrl+G，定位行
 Ctrl+Shift+J，整合两行
 
 ctrl+alt+insert,新建文件
+
+Alt+Up/Down，在方法间快速移动定位
+
+
+
+
+
+
