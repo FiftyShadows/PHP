@@ -34,6 +34,8 @@ ctrl+alt+insert,新建文件
 
 Alt+Up/Down，在方法间快速移动定位
 
+ctrl+~,修改样式
+
 
 
 
