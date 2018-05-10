@@ -62,6 +62,8 @@ show databases;
 
 exit
 
+环境变量设置： 在Path下添加
+
 
 
 
