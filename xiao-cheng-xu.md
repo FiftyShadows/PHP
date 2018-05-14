@@ -129,7 +129,39 @@ application/config.php    app_namespace
 
 
 
+##配置虚拟域名
 
+D:\Server\xampp\apache\conf\extra
+
+httpd-vhosts.conf
+
+```
+<VirtualHost *:80>
+
+    DocumentRoot "D:/Server/xampp/htdocs/zerg/public"
+
+    ServerName z.cn
+
+</VirtualHost>
+
+```
+
+c:\Windows\system32\drivers\etc
+
+hosts
+
+127.0.0.1    z.cn
+
+
+
+##apache服务器重写规则
+
+
+
+
+##localhost跳转的问题
+
+- 给localhost配置虚拟域名
 
 
 
