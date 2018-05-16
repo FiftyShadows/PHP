@@ -225,6 +225,9 @@ hosts
 
 - get两种方式：1.路径里传参，2.?key=value
 
+- post三种方式：1.路径里传参，2.?key=value,3.body里
+
+
 
 
 
@@ -233,6 +236,172 @@ hosts
 - 在方法形参自动获取
 
 - Request类获取
+
+    - Request::instance()->param('id');不区分请求类型
+    
+    - $all=Request::instance()->param();获取所有请求变量
+    
+    - route方法获取路径后边的参数
+    
+    - get获取?后边的参数
+    
+    - post获取body里的参数
+    
+- input助手函数: $all = input('param.');
+
+- 依赖注入Request
+
+```
+use think\Request;
+
+class Test
+{
+//    public function hello($id, $name, $age){
+//        echo $id;
+//        echo '|';
+//        echo $name;
+//        echo '|';
+//        echo $age;
+//    }
+
+    public  function  hello(Request $request){
+//        $id = Request::instance()->param('id');
+//        $name = Request::instance()->param('name');
+//        $age = Request::instance()->param('age');
+//        echo $id.'|'.$name.'|'.$age;
+
+//        $all = Request::instance()->get();
+
+//        $all = input('param.');
+
+
+        $all = $request->param();
+
+        var_dump($all);
+
+
+    }
+
+}
+```
+
+
+
+
+##产品
+
+- 想要对样式和代码有更多掌控力，就把它写死
+
+- 重复的东西需要用循环来展现
+
+- 分类：无限极分类不实用，会引起诸多问题
+
+- 购物车信息与服务器通信的好处，websocket实时通信机制
+
+    - 多设备登陆：在不同的设备上登陆时，显示购物车信息
+    
+    - 分析用户消费习惯：购物车信息也需要存储到数据库当中
+    
+- 商品数量+-
+
+    - 按照惯例数量不可以减到0；删除按钮比较隐蔽
+
+
+
+
+
+
+##MySQL
+
+- 没有使用外键约束
+
+    - 对于业务不复杂，业务变更频度低的可以用外键约束
+    
+- 数据假删除
+
+    - 系统稳定性和容错率会更高
+    
+    - 所有的数据都有一定的价值，用于做数据分析
+    
+    - 外键约束不好用
+    
+- 数据库迭代
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
