@@ -60,7 +60,7 @@ mysql -uroot -p
 
 show databases;
 
-exit
+exit;
 
 环境变量设置： 在Path下添加
 
