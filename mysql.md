@@ -128,7 +128,7 @@ salary float(8,2) unsigned
 
 
 
-##空值与非空
+##非空约束
 
 - null；字段值可以为空
 
@@ -189,6 +189,103 @@ sex enum('1', '2', '3') default '3'
 
 
 
+##约束
+
+- 保证数据的完整性和一致性
+
+- 约束分为表级约束和列级约束
+
+
+
+
+##foreign key
+
+- 保持数据一致性，完整性
+
+- 实现一对一或一对多关系。
+
+
+
+
+##外键约束的要求
+
+- 数据表的引擎只能为InnoDB
+
+    - my.ini    default-storage-engine=INNODB
+    
+- 外键列和参照列必须具有相似的数据类型    
+
+    - 数字长度和符号位必须相同
+    
+    - 字符的长度则可以不同
+    
+- 有外键的表为子表，子表所按照的表为父表
+
+- 外键列和参照列必须创建索引。如果外键列不存在索引的话，mysql将自动创建索引。
+    
+show create table provinces;    查看数据表的存储引擎
+
+show indexes from users\G;    查看数据表的索引
+
+delete from provinces where id = 3;
+
+```
+create table users(
+id smallint unsigned primary key auto_increment,
+username varchar(20) not null,
+pid smallint unsigned,
+foreign key (pid) references provinces (id)
+);
+```
+    
+
+    
+
+##外键约束的参照操作
+
+- cascade: 从父表删除或更新且自动删除或更新子表中匹配的行
+
+- set null: 从父表删除或更新行，并设置子表中的外键为null。如果使用该选项，必须保证子表列没有指定not null。
+
+- restrict： 拒绝对父表的删除或更新操作
+
+- no action: 标准sql的关键字，在mysql中与restrict相同
+
+
+
+
+##表级约束与列级约束
+
+- 对一个数据列建立的约束，成为列级约束
+
+- 对多个数据列建立的约束，成为表级约束
+
+- 列级约束既可以在列定义时声明，也可以在列定义后声明
+
+- 表级约束只能在列定义后声明
+
+- not null default不存在表级约束
+
+
+
+
+##修改数据表
+
+- `alter table tbl_name add col_name col_definition [first | after col_name];`    添加单列
+
+- alter table tbl_name add ();    添加多列，不能指定位置关系
+
+- `alter table tbl_name drop col_name;`    删除列
+
+- `alter table tbl_name drop a, drop b;`    删除多列，也可以在后边继续添加
+
+- `alter table tbl_name add primary key [index_type] col_name;`    添加主键约束
+
+- `alter table tbl_name add unique [index | key] [index_type] (col_name, ...);`    添加唯一约束
+
+- `alter table tbl_name add foreign key (col_name, ...) references tabl_name (col_name);`    添加外键约束
+
+- alter table tbl_name alter col_name {set default value | drop default};    添加/删除默认约束
 
 
 
