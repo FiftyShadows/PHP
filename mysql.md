@@ -257,7 +257,7 @@ foreign key (pid) references provinces (id)
   
   - rename table tbl_name to new_tbl_name [, tbl_name to new_tbl_name, ...];  
 
-![](/assets/360截图20180521004526904.jpg)
+![](/assets/360截图20180521004739614.jpg)
 
 
 
