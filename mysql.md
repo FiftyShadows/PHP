@@ -263,6 +263,33 @@ foreign key (pid) references provinces (id)
 
 
 
+##insert
+
+- `insert tbl_name[(col_name,...)] {values | value} ();`
+
+- 给自动编号的字段赋值时，可以设置为null或default
+
+- default字段，可以设置default
+
+- 字段值可以是：表达式、默认值、函数、空值
+
+- `insert tbl_name set col_name = {expr | default},...;`  可以使用子查询
+
+- `insert tbl_name [(col_name,...)] select ...;`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  
