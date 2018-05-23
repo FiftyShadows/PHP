@@ -213,6 +213,8 @@ hosts
 
 - Route::rule('路由表达式', '路由地址', '请求类型', '路由参数(数组)', '变量规则(数组)');
 
+- Route::rule('hello', 'sample/Test/hello', 'GET|POST', ['https'=>false]);
+
 - 请求类型，默认`* `   //GET, POST, DELETE, PUT, *
 
 - 快捷注册方式：Route::get, Route::post, Route::any
