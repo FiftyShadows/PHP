@@ -275,7 +275,170 @@ foreign key (pid) references provinces (id)
 
 - `insert tbl_name set col_name = {expr | default},...;`  可以使用子查询
 
-- `insert tbl_name [(col_name,...)] select ...;`    将查询结果插入到制定数据表
+- `insert tbl_name [(col_name,...)] select ...;`    将查询结果插入到指定数据表
+
+  - insert test (username) select username from users where id = 5;
+
+
+
+
+
+##update
+
+- 单表更新： `update tab_reference set col_name1 = {expr | default} [, col_name2 = {expr | default}, ……] [where where_condition];`
+
+  - update users set age = age * 5;
+  
+  - update users set age = age - id, sex = 0;
+  
+  - update users set age = age + 10 where id % 2 = 0;
+  
+  
+  
+  
+  
+  
+  
+##delete删除记录
+
+- 单表删除： `delete from tbl_name [where where_condition];`
+
+
+
+
+
+
+##select  表操作的80%以上使用率
+
+
+```
+select select_expr [,select_expr,……]
+
+[
+  from table_references
+  [where where_condition]
+  [group by {col_name | position} [asc | desc] , ……]
+  [having where_condition]
+  [order by {col_name | expr | position} [asc | desc] , ……]
+  [limit {[offset, ] row_count | row_count offset offset}]
+]
+```
+
+- 查找函数或表达式可以省略数据表
+
+- 查找的列的顺序可以互换；查询表达式的顺序影响结果的顺序；别名也会影响顺序
+
+- tbl_name.*可以表示命名表的所有列
+
+- 查询表达式可以使用[as] alias_name为其赋予别名
+
+- 别名可用于group by, order by 或 having 子句
+
+  - select id [as] userid, username [as] uname from users;
+
+
+
+
+
+##where条件表达式
+
+- 在where表达式中，可以使用mysql支持的函数或表达式
+
+
+
+
+##group by
+
+- 查询结果分组
+
+  - select * from users group by sex;  指定列名称
+  
+  - select * from users gourp by 1;  指定位置
+  
+  
+  
+  
+##having
+
+- 分组条件：分组条件为聚合函数(max, min, avg, sum)；或者字段必须出现在当前select语句当中
+
+  - select sex,age from users group by sex having age > 0;
+  
+  - select sex,age from users group by sex having count(id) >= 2;
+
+
+
+
+
+##order by 
+
+- 对查询结果进行排序,默认升序；可对多个字段排序
+
+  - select * from users order by id desc;
+  
+  - select * from users order by age, id desc;
+
+
+
+
+##limit
+
+- 限制查询结果返回的数量; 分页效果的实现
+
+  - limit [索引,] 数量;  索引从0开始
+
+  - select * from users limit 2;
+  
+  - select * from users limit 3,2;
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
