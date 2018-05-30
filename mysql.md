@@ -263,7 +263,7 @@ foreign key (pid) references provinces (id)
 
 
 
-##insert
+##insert value
 
 - `insert tbl_name[(col_name,...)] {values | value} (), ();`
 
@@ -273,11 +273,18 @@ foreign key (pid) references provinces (id)
 
 - 字段值可以是：表达式、默认值、函数、空值    1*2*3  default  md5('123')  null
 
+
+
+
+##insert set
+
 - `insert tbl_name set col_name = {expr | default},...;`  可以使用子查询
 
 - `insert tbl_name [(col_name,...)] select ...;`    将查询结果插入到指定数据表
 
   - insert test (username) select username from users where id = 5;
+  
+  - `insert tdb_goods_cate (cate_name) (select goods_cate from tdb_goods GROUP BY goods_cate);`
 
 
 
@@ -309,7 +316,6 @@ foreign key (pid) references provinces (id)
 
 
 ##select  表操作的80%以上使用率
-
 
 ```
 select select_expr [,select_expr,……]
@@ -394,7 +400,68 @@ select select_expr [,select_expr,……]
   
 
 
+set names gbk;
 
+select * from tdb_goods\G;
+
+
+
+
+##子查询
+
+- 子查询指嵌套在查询内部，且必须始终出现在圆括号内。
+
+- 子查询可以包含多个关键字或条件，如distinct、group by、order by、limit、函数等
+
+- 子查询的外层查询可以是：select、insert、update、set或do。
+
+- 子查询可以返回标量、一行、一列或子查询。
+
+- Out Query / SubQuery
+
+- `select avg(goods_price) from tdb_goods;`
+
+- `select round(avg(goods_price),2) from tdb_goods;`
+
+- `select * from tdb_goods where goods_price >= 5336.36;`
+
+- `select * from tdb_goods where goods_price >= (select round(avg(goods_price),2) from tdb_goods);`
+
+- `select * from tdb_goods where goods_price >= (select goods_price from tdb_goods where goods_cate = '超极本');`  子查询结果不能超过1行
+
+
+
+
+##使用比较运算符的子查询
+
+- = , >, <, >=, <=, <>, !=, <>
+
+
+
+
+
+##子查询返回多个结果需要使用any、some或all修饰比较运算符
+
+![](/assets/360截图18470129507466.png)
+
+
+
+
+##使用[not] in的子查询
+
+- = any运算符与in等效
+
+- !=all或<>all运符与not in等效
+
+
+
+
+##使用[not] exists的子查询
+
+- 如果子查询返回任何行，exists将返回true；否则为false。
+
+
+`
 
 
 
