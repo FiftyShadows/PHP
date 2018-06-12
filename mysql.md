@@ -432,22 +432,30 @@ select * from tdb_goods\G;
 
 
 
-##使用比较运算符的子查询
+####使用比较运算符的子查询
 
 - = , >, <, >=, <=, <>, !=, <>
 
+- operand comparison_operator any [some | all] (subquery)
 
 
 
 
-##子查询返回多个结果需要使用any、some或all修饰比较运算符
+
+####子查询返回多个结果需要使用any、some或all修饰比较运算符
 
 ![](/assets/360截图18470129507466.png)
 
+- operand comparison_operator any [some | all] (subquery)
+
+`select * from tdb_goods where goods_price >= all (select goods_price from tdb_goods where goods_cate = '超极本');`
 
 
 
-##使用[not] in的子查询
+
+####使用[not] in的子查询
+
+- operand comparison_operator [not] in (subquery)
 
 - = any运算符与in等效
 
@@ -456,12 +464,23 @@ select * from tdb_goods\G;
 
 
 
-##使用[not] exists的子查询
+####使用[not] exists的子查询
 
 - 如果子查询返回任何行，exists将返回true；否则为false。
 
 
-`
+
+
+
+
+##表的参照关系
+
+- `table_reference { [inner | cross] join | {left | right} [outer] join } table_reference on conditional_expr`
+
+- `update tdb_goods inner join tdb_goods_cates on goods_cate = cate_name set goods_cate = cate_id;`
+
+
+
 
 
 
