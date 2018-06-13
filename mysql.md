@@ -473,9 +473,11 @@ select * from tdb_goods\G;
 
 
 
-##表的参照关系
+##数据表的参照关系
 
 - `table_reference { [inner | cross] join | {left | right} [outer] join } table_reference on conditional_expr`
+
+- `table_reference tbl_name [as alias] table_subquery [as] alias`  数据表可以使用别名。table_subquery可以作为子查询使用在from子句中，这样的子查询必须为其赋予别名。
 
 - `update tdb_goods inner join tdb_goods_cates on goods_cate = cate_name set goods_cate = cate_id;`
 
@@ -513,6 +515,58 @@ select brand_name from tdb_goods group by brand_name;```
 
 
 
+
+
+##连接
+
+- mysql在select语句、多表更新、多表删除语句中支持join操作。
+
+
+
+
+
+##连接类型
+
+- 使用on关键字来设定连接条件，也可以使用where来代替。通常使用on关键字来设定连接条件，使用where关键字进行结果集记录的过滤。
+
+
+  
+  
+  
+####内连接
+
+- 显示左表及右表符合连接条件的记录
+
+- 如果使用内连接查找的记录在数据表中不存在，并且在where子句中尝试以下操作：col_namd is null时，如果col_name被定义为not null，停止搜索更多的行。
+
+- `select goods_id, goods_name, cate_name from tdb_goods inner join tdb_goods_cates on tdb_goods.cate_id = tdb_goods_cates.cate_id;`
+
+
+
+
+
+####外连接
+
+- 左外连接：显示左表的全部记录及右表符合连接条件的记录
+
+- 右外连接：显示右表的全部记录及左表符合连接条件的记录
+
+
+
+
+
+##多表连接
+
+```
+select goods_id,goods_name,cate_name,brand_name,goods_price from tdb_goods g 
+inner join tdb_goods_cates c on g.cate_id = c.cate_id
+inner join tdb_goods_brands b on g.brand_id = b.brand_id;
+```
+
+
+
+
+##
 
 
 
