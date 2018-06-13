@@ -566,7 +566,20 @@ inner join tdb_goods_brands b on g.brand_id = b.brand_id;
 
 
 
-##
+##无限极分类表设计
+
+```
+create table tdb_goods_types(
+	type_id smallint unsigned primary key auto_increment,
+	type_name varchar(20) not null,
+	parent_id smallint unsigned not null default 0
+);
+
+```
+
+
+
+##自身连接
 
 
 
