@@ -495,9 +495,20 @@ select * from tdb_goods\G;
 
 - 创建数据表同时将查询结果写入到数据表  `create table [if not exists] tbl_name [(create_definition,...)] select_statement;`
 
+1. ```drop table if exists tdb_goods_brands;
+create table tdb_goods_brands(
+	brand_id smallint unsigned primary key auto_increment,
+	brand_name varchar(40) not null
+)
+select brand_name from tdb_goods group by brand_name;```
 
+2. `update tdb_goods inner join tdb_goods_brands on brand_name = brand_name set brand_name = brand_id;`  字段含义不明确
 
+  - `update tdb_goods as g inner join tdb_goods_brands as b on g.brand_name = b.brand_name set g.brand_name = b.brand_id;`
 
+3. 修改表结构，数据库瘦身。
+
+  - `alter table tdb_goods change goods_cate cate_id smallint unsigned not null, change brand_name brand_id smallint unsigned not null;`
 
 
 
