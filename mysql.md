@@ -479,6 +479,25 @@ select * from tdb_goods\G;
 
 - `update tdb_goods inner join tdb_goods_cates on goods_cate = cate_name set goods_cate = cate_id;`
 
+1. 创建表  ```create table if not exists tdb_goods_cates(
+	cate_id smallint unsigned primary key auto_increment,
+	cate_name varchar(40) not null
+);```
+
+2. insert select写入记录  `insert tdb_goods_cates (cate_name) select goods_cate from tdb_goods GROUP BY goods_cate;`
+
+3. 多表更新  `update tdb_goods inner join tdb_goods_cates on goods_cate = cate_name set goods_cate = cate_id;`
+
+
+
+
+##create……select
+
+- 创建数据表同时将查询结果写入到数据表  `create table [if not exists] tbl_name [(create_definition,...)] select_statement;`
+
+
+
+
 
 
 
