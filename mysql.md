@@ -581,6 +581,40 @@ create table tdb_goods_types(
 
 ##自身连接
 
+- 同一个数据表对其自身进行连接。
+
+```
+select s.type_id,s.type_name,p.type_name from tdb_goods_types s left join tdb_goods_types p
+on s.parent_id = p.type_id;
+
+
+select p.type_id,p.type_name,s.type_name from tdb_goods_types p left join tdb_goods_types s
+on p.type_id = s.parent_id;
+
+
+select p.type_id,p.type_name,s.type_name from tdb_goods_types p left join tdb_goods_types s
+on p.type_id = s.parent_id group by p.type_name order by p.type_id;
+
+
+select p.type_id,p.type_name,count(s.type_name) child_count from tdb_goods_types p left join tdb_goods_types s
+on p.type_id = s.parent_id group by p.type_name order by p.type_id;
+```
+
+
+
+
+##多表删除
+
+- 语法：`delete tbl_name[.*] [, tbl_name[.*]] ... from table_references [where where_condition]`
+
+  - `select * from tdb_goods group by goods_name having count(goods_name) >= 2 order by goods_id;`
+  
+  - `delete t1 from tdb_goods t1 left join (select * from tdb_goods group by goods_name having count(goods_name) >= 2 order by goods_id) t2 on t1.goods_name = t2.goods_name where t1.goods_id > t2.goods_id;`
+
+
+
+
+
 
 
 
