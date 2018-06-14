@@ -98,6 +98,8 @@ mysql -uroot -p -P3306 -h127.0.0.1
 
 * show columns from tbl\_name;    查看数据表结构
 
+* desc tbl_name;    查看数据表结构
+
 * `insert tbl_name[(col_name,...)] values(val,...) ;`   插入记录
 
   * 省略字段，则所有字段都需要赋值
@@ -118,7 +120,7 @@ salary float(8,2) unsigned
 
 * not null；字段值禁止为空
 
-## auto\_increment
+## auto_increment
 
 * 自动编号，且必须与主键组合使用
 
@@ -617,7 +619,28 @@ on p.type_id = s.parent_id group by p.type_name order by p.type_id;
 
 
 
+##MySql数据库函数
 
+- 字符函数
+
+  - concat()字符连接      `select concat(type_id,type_name) as fullname from tdb_goods_types;`
+  
+  - concat_ws()使用指定的分隔符进行字符连接    `select concat_ws('|', 'A', 'B', 'C');`
+  
+  - format()数字格式化    `select format(9191827391.6178236, 2);`
+
+
+- 数值运算符与函数
+
+- 比较运算符与函数
+
+- 日期时间函数
+
+- 信息函数
+
+- 聚合函数
+
+- 加密函数
 
 
 
