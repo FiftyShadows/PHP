@@ -310,6 +310,8 @@ foreign key (pid) references provinces (id)
 
 - 单表删除： `delete from tbl_name [where where_condition];`
 
+  - DELETE 别名 FROM 表名称 别名 WHERE 列名称 = 值
+
 
 
 
