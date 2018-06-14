@@ -628,21 +628,103 @@ on p.type_id = s.parent_id group by p.type_name order by p.type_id;
   - concat_ws()使用指定的分隔符进行字符连接    `select concat_ws('|', 'A', 'B', 'C');`
   
   - format()数字格式化    `select format(9191827391.6178236, 2);`
+  
+  - lower()小写    `select lower('HELLO WORLD');`
+  
+  - upper()大写
+  
+  - left()获取左侧字符    `select lower(left('MySql', 2));`
+  
+  - right()获取右侧字符
+  
+  - length获取字符串长度
+  
+  - ltrim()删除前导空格
+  
+  - rtrim()删除后导空格
+  
+  - trim()    `select trim(leading '?' from '???MySql?????');`      `select trim(trailing '?' from '???MySql?????');`    `select trim(both '?' from '???MySql?????');`
+  
+  - replace()    `select replace('???My??Sql????', '?', '');`
+  
+  - substring()从1开始，截取位数    `select substring('MySql', 1, 2);`
+  
+  - [not]like()模式匹配    `select 'MySql' like 'M%';`    `select * from test where first_name like '%1%%' escape '1';`
+  
+    - `ESCAPE '1'相当于把1定义为了转义字符，也就是说'%1%%'里  中间的%被1转义了，最后一个%还是匹配符`
+  
+    - `%代表任意0个或多个字符`
+    
+    - `_代表任意一个字符`
 
 
 - 数值运算符与函数
 
+  - ceil()进一取整
+  
+  - floor()舍一取整
+  
+  - div整数除法    select 3 div 4;
+  
+  - mod取余数    select 5 % 3;    select 5 mod 3;    select 5.3 mod 3;
+  
+  - power()幂运算    select power(3, 3);
+  
+  - round()四舍五入    select round(3.1415926, 2);
+  
+  - truncate()数字截取    select truncate(125.89, 2);    select truncate(125.89, -1);
+
 - 比较运算符与函数
+
+  - [not] between...and...    [不]在范围之内    select 10 between 1 and 26;
+  
+  - [not] in()    [不]在列出值范围内    select 13 in (5,10,13,15,20);
+  
+  - is [not] null    [不]为空    select null is null;
 
 - 日期时间函数
 
+  - now()当前日期和时间
+  
+  - curdate()
+  
+  - curtime()
+  
+  - `date_add()`日期变化    `select date_add('2018-6-15', interval -365 day);`  1 year/3 week
+  
+  - datediff()日期差值    select datediff('2013-3-12', '2018-6-15');
+  
+  - date_format()日期格式化    `select date_format('2018-6-2', '%m/%d/%Y');`
+
 - 信息函数
 
-- 聚合函数
+  - connection_id()连接ID
+  
+  - datebase()当前数据库
+  
+  - `lase_insert_id()`最后插入记录的id，与insert组合使用
+  
+  - user()当前用户
+  
+  - version()版本信息
+
+- 聚合函数，只有一个返回值
+
+  - avg()平均值
+  
+  - count()计数
+  
+  - max()最大值
+  
+  - min()最小值
+  
+  - sum()求和
 
 - 加密函数
 
-
+  - md5()信息摘要算法
+  
+  - password()密码算法    set password = password('admin');
 
 
 
