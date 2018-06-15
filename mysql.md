@@ -700,7 +700,7 @@ on p.type_id = s.parent_id group by p.type_name order by p.type_id;
 
   - connection_id()连接ID
   
-  - datebase()当前数据库
+  - database()当前数据库
   
   - `lase_insert_id()`最后插入记录的id，与insert组合使用
   
@@ -725,6 +725,51 @@ on p.type_id = s.parent_id group by p.type_name order by p.type_id;
   - md5()信息摘要算法
   
   - password()密码算法    set password = password('admin');
+
+
+
+
+
+
+##自定义函数
+
+- 用户自定义函数(user-defined function, udf)是一种对MySql扩展的途径，其用法与内置函数相同。
+
+  - 自定义函数的两个必要条件： (1)参数，不超过1024  (2)返回值
+  
+- 语法
+
+  - 函数体由合法的sql语句构成;
+  
+  - 函数体可以是简单的select或insert语句；
+  
+  - 函数体如果为复合结构则使用begin...end语句；
+  
+  - 复合结构可以包含声明，循环，控制结构；
+
+```
+create function function_name
+returns 
+{string | integer | real | decimal}
+routine_body
+
+create function f1() returns varchar(30)
+return date_format(now(), '%Y年%m月%d日 %H点:%i分:%s秒');
+
+select f1();
+
+drop function if exists f2;
+create function f2(num1 smallint unsigned, num2 smallint unsigned)
+returns float(10, 2) unsigned
+return (num1 + num2) / 2;
+
+select f2(48142, 75497287);
+
+```
+
+
+
+
 
 
 
