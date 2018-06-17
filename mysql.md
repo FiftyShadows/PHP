@@ -770,6 +770,91 @@ select f2(48142, 75497287);
 
 
 
+##存储过程
+
+- 存储过程是sql语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。
+
+- 优点
+
+  - 增强sql语句的功能和灵活性
+  
+  - 实现较快的执行速度
+  
+  - 减少网络流量
+  
+- 缺点
+
+  - 存储过程不利于将来分库分表
+  
+  - 存储过程可能无法和许多中间件、ORM库一起使用。某些特殊的兼容MySQL的实现可能根本就不支持存储过程，那就更不用说了。
+  
+  - 阿里这种互联网高并发的场景，很多数据都是分库分表的，而且要求高度可扩展，原则是对db的保护做到最大化，能减少db压力的就减少db压力，尽量把运算逻辑拉到代码里面。存储过程的优点在于封装性好，直接让db进行运算，但是缺点在于难以维护，而且大大增大db压力。
+  
+  - 针对互联网企业。单次请求涉及数据少，数据关系简单，但是更新频率高；工程的迭代速率高，数据关系随时可能扩展修改。
+  
+- 创建存储过程
+
+```
+create
+[definer = {user | current_user}]
+procedure sp_name ([proc_parameter[, ...]])
+[characteristic ...] routine_body
+
+pro_parameter:
+[ in | out | inout] param_name type
+
+//in，表示该参数的值必须在条存储过程时指定
+//out，表示该参数的值可以被存储过程改变，并且可以返回
+//inout,表示该参数的调用时指定，并且可以被改变和返回
+
+//特性
+//comment:注释
+//contains sql:包含sql语句，但不包含读或写数据的语句
+//no sql:不包含sql语句
+//reads sql data:包含读数据的语句
+//modifies sql data:包含写数据的语句
+//sql security {definer | invoker} 指明谁有权限来执行
+```
+
+- 调用存储过程
+
+  - call sp_name([parameter [,..]])
+
+  - call sp_name[()]
+  
+```
+drop procedure if exists removeUsersById；
+delimiter //
+create procedure removeUsersById (in p_id int unsigned)
+begin
+delete from users where id = p_id;
+end
+//
+delimiter ;
+
+call removeUsersById(16);
+
+
+drop procedure if exists removeUserAndReturnUserNums;
+delimiter //
+create procedure removeUserAndReturnUserNums (in p_id int unsigned, out userNums int unsigned)
+begin
+delete from users where id = p_id;
+select count(id) from users into userNums;
+end
+//
+delimiter ;
+
+call removeUserAndReturnUserNums(14, @nums);
+select @nums;
+
+局部变量和用户变量
+set @i = 7;
+select @i;
+```
+
+
+
 
 
 
