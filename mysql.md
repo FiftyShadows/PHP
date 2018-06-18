@@ -772,7 +772,7 @@ select f2(48142, 75497287);
 
 ##存储过程
 
-- 存储过程是sql语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。
+- 存储过程是sql语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。存储在数据库内，可以由应用程序通过调用来执行，而且允许用户声明变量，以及进行有条件的执行。
 
 - 优点
 
@@ -794,6 +794,14 @@ select f2(48142, 75497287);
   
 - 创建存储过程
 
+- 注意事项
+
+  - 需要用过delimiter修改定界符
+  
+  - 如果有多个语句，需要包含在begin……end语句块中
+  
+  - 通过call来调用
+
 ```
 create
 [definer = {user | current_user}]
@@ -803,9 +811,9 @@ procedure sp_name ([proc_parameter[, ...]])
 pro_parameter:
 [ in | out | inout] param_name type
 
-//in，表示该参数的值必须在条存储过程时指定
-//out，表示该参数的值可以被存储过程改变，并且可以返回
-//inout,表示该参数的调用时指定，并且可以被改变和返回
+//in输入类型参数，表示该参数的值必须在条存储过程时指定
+//out输出类型参数，表示该参数的值可以被存储过程改变，并且可以返回
+//inout输入&&输出类型参数,表示该参数的调用时指定，并且可以被改变和返回
 
 //特性
 //comment:注释
@@ -851,11 +859,48 @@ select @nums;
 局部变量和用户变量
 set @i = 7;
 select @i;
+
+
+drop procedure if exists removeByAgeAndReturnInfos;
+delimiter //
+create procedure removeByAgeAndReturnInfos(in p_age int unsigned, out num1 int unsigned, out num2 int unsigned)
+begin
+delete from users where age = p_age;
+select row_count() into num1;
+select count(id) from users into num2;
+end
+//
+delimiter ;
+
+call removeByAgeAndReturnInfos(23, @num1, @num2);
+select @num1,@num2;
+
 ```
 
 
 
 
+##存储过程与自定义函数的区别
+
+- 存储过程实现的功能复杂一些；而函数针对性更强
+
+- 存储过程可以返回多个值；函数只能有一个返回值
+
+- 存储过程一般独立执行；而函数可以作为其他sql语句的组成部分来出现
+
+- 函数效率较慢
+
+![](/assets/360截图185907269010682.png)
+
+
+
+
+
+##存储引擎
+
+- MySql可以将数据以不同的技术存储在文件中，这种技术就称为存储引擎。
+
+- 每一种存储引擎使用不同的存储机制、索引技巧、锁定水平，最终提供广泛且不同的功能。
 
 
 
@@ -909,4 +954,6 @@ select @i;
 
 
 
+
+ 
  
