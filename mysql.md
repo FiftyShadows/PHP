@@ -943,9 +943,45 @@ select @num1,@num2;
   - 隔离性
   
   - 持久性
+  
+  
+  
+##外键
+
+- 是保证数据一致性的策略。
+  
+  
+  
+
+
+##索引
+
+- 是对数据表中一列或多列的值进行排序的一种结构。
+
+- 普通索引、唯一索引、全文索引、btree索引、hash索引……
 
 
 
+
+##存储引擎
+
+- 通过修改MySQL配置文件实现
+
+  - default-storage-engine = engine
+
+- 通过创建数据表命令实现
+
+  - craete table tbl_name()engine = engine
+  
+- 通过修改数据表命令实现
+
+  - alter table tbl_name engine [=] engine;
+  
+- MyISAM: 存储限制可达256TB，支持索引、表级锁定、数据压缩。
+
+- InnoDB: 存储限制为64TB，支持事务和索引，锁颗粒为行锁。
+
+![](/assets/360截图18141226625965.png)
 
 
 
