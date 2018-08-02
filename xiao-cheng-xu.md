@@ -1,4 +1,4 @@
-Directories 配置根命名空间
+Directories 配置根命名空间自动补全
 
 
 ##CMS两大类
