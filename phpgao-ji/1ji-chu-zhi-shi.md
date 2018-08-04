@@ -8,6 +8,8 @@
 
 - unset只会取消引用，不会销毁空间
 
+- 对象本身就是引用传递
+
 - `var_dump(memory_get_usage())`
 
 ```php
