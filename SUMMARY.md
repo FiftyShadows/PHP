@@ -10,4 +10,5 @@
 * [MySQL](mysql.md)
   * [sql命令](mysql/sqlming-ling.md)
 * [PHP高级](phpgao-ji.md)
+  * 1.基础知识
 
