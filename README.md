@@ -1,3 +1,6 @@
+`\xampp\apache\conf\extra\httpd-vhosts`配置虚拟域名
+
+
 ##idea快捷键
 
 - double shift    search everywhere
