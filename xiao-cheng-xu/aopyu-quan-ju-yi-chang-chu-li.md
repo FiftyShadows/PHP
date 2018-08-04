@@ -10,3 +10,6 @@
 
 
 ## Exception分为think\Exception和HttpException和\Exception
+
+- \Exception是think\Exception和HttpException的基类
+
