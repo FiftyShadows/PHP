@@ -428,6 +428,8 @@ echo mgFunc();
 
 ![](/assets/360截图18010806665483.png)
 
+- 正则表达式PCRE函数： `preg_match(), preg_match_all(), preg_replace(), preg_split()`
+
 
 
 
