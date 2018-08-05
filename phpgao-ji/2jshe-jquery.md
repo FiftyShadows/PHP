@@ -18,3 +18,75 @@ var pi = 3.14;
 var num = new Number(3.14);
 var num = Number(3.14);
 ```
+
+
+## Window对象
+
+- Window、 Navigator、 Screen、 History、 Location
+
+
+
+## DOM对象
+
+- Document, Element, Attr, Event
+
+
+
+## AJAX
+
+- Asynchronous JavaScript and XML
+
+- XMLHttpRequest是AJAX的基础
+
+
+
+## jQuery
+
+- 常用方法： $(ele).load(), $.ajax(), $.get(), $.post(), $.getJSON(), $.getScript()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
