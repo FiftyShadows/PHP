@@ -289,6 +289,19 @@ mgFunc();
 
 - 如果希望允许函数修改它的值，必须通过引用传递参数
 
+```php
+$a = 666;
+
+function mgFunc(&$b){
+    $b = 999;
+    echo $b;
+}
+
+mgFunc($a);
+
+echo $a;
+```
+
 
 
 
