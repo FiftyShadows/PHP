@@ -27,3 +27,30 @@
 - 文件处理： touch, unlink, rename, ln, cat
 
 - 目录操作： cd, mv, rm, pwd, tree, cp, ls
+
+- 文件权限属性： setfacl, chmod, chown, chgrp
+
+- 压缩/解压： bzip2/bunzip2, gzip/gunzip, zip/unzip, tar
+
+- 文件传输： ftp, scp
+
+
+
+## Linux系统定时任务
+
+- crontab命令    crontab -e    `*****命令(分 时 日 月 周)`
+
+- at命令，一次性执行    `at 2:00 tomorrow    at>/home/Jason/do_job`    ctrl + D 结束
+
+
+
+
+## vi/vim编辑器
+
+- 一般模式：删除、复制和粘贴
+
+    - 切换编辑模式：i, I, o, O, a, A, r, R
+    
+    - 切换命令行模式： :, /, ?
+    
+- 移动光标：ctrl + f, ctrl + b, 0或者功能键Home, $或者功能键End, G, gg, N + Enter
