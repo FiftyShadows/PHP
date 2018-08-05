@@ -469,6 +469,27 @@ $handle = fopen($file, 'w');
 fwrite($handle, $content);
 
 fclose($handle);
+
+
+//对目录进行遍历
+
+$dir = '../demo';
+
+function loopDir($dir)
+{
+    $handle = opendir($dir);
+
+    while (false !== ($file = readdir($handle))) {
+        echo $file . "<br>";
+        if ($file != '.' && $file != '..'){
+            if(filetype($dir . '/' . $file) == 'dir'){
+                loopDir($dir . '/' . $file);
+            }
+        }
+    }
+}
+
+loopDir($dir);
 ```
 
 
