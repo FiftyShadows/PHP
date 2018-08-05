@@ -280,6 +280,16 @@ mgfunc();
 
 - 如果希望允许函数修改它的值，必须通过引用传递参数
 
+```
+function mgFunc()
+{
+    Static $a = 1;
+    echo $a++;
+}
+
+mgFunc();
+```
+
 
 
 
