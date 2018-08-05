@@ -239,6 +239,19 @@ if($a = 3 > 0 || $b = 3 > 0){
 
 - $GLOBALS及其他超全局数组
 
+```php
+$outer = 'str';
+
+function mgfunc(){
+    global $outer;
+    echo $outer;
+    echo $GLOBALS['outer'];
+
+}
+
+mgfunc();
+```
+
 
 ## 静态变量
 
