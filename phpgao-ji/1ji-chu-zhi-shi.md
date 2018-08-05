@@ -407,5 +407,73 @@ echo mgFunc();
 
 ## 文件读取/写入操作
 
+- fopen()函数：用来打开一个文件，打开时需要指定打开模式
+
+    - 打开模式：r/r+, w/w+, a/a+, x/x+, b, t
+
+- 写入函数： `fwrite(), fputs()`
+
+- 读取函数： `fread(), fgets()获取一行, fgetc()获取一个字符`
+
+- 关闭文件函数： `fclose()`
+
+- 不需要fopen()打开的函数： `file_get_contents(), file_put_contents()`
+
+- 其他读取函数： `file()将整个文件读取到数组里面去, readfile()读取并输出到缓冲区`
+
+- 访问远程文件： php.ini开启`allow_url_fopen`，HTTP协议连接只能使用只读，FTP协议可以使用只读或者只写
+
+- 目录相关： `basename(), dirname(), pathinfo()`
+
+- 目录读取： `opendir(), readdir(), closedir(), rewinddir()`
+
+- 目录删除： `rmdir()`
+
+- 目录创建： `mkdir()`
+
+- 文件大小： `filesize()`
+
+- 磁盘大小： `disk_free_space()剩余空间, disk_total_space()总共大小`
+
+- 文件拷贝： copy()
+
+- 删除文件： unlink()
+
+- 文件类型(file/dir)： filetype() 
+
+- 重命名文件或者目录(移动位置)： rename()
+
+- 文件截取： ftruncate()
+
+- 文件属性： `file_exists(), is_readable(), is_writable(), is_executable(), filectime(), fileatime(), filetime()`
+
+- 文件锁： flock()
+
+- 文件指针： ftell(), fseek(), rewind()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
