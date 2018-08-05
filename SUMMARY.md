@@ -11,4 +11,5 @@
   * [sql命令](mysql/sqlming-ling.md)
 * [PHP高级](phpgao-ji.md)
   * [1.基础知识](phpgao-ji/1ji-chu-zhi-shi.md)
+  * 2.JS和jQuery
 
