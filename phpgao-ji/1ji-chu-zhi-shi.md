@@ -268,9 +268,18 @@ mgfunc();
     - static修饰的变量是局部的，仅在函数内部有效
     
     - 可以记录函数的调用次数，从而可以在某些条件下终止递归
+    
+```php
+function mgFunc()
+{
+    Static $a = 1;
+    echo $a++;
+}
+
+mgFunc();
+```
 
 ![](/assets/360截图1700101210113093.png)
-
 
 
 
@@ -280,15 +289,7 @@ mgfunc();
 
 - 如果希望允许函数修改它的值，必须通过引用传递参数
 
-```
-function mgFunc()
-{
-    Static $a = 1;
-    echo $a++;
-}
 
-mgFunc();
-```
 
 
 
