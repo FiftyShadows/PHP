@@ -9,3 +9,12 @@ var a = 1;
 
 var a;
 ```
+
+
+## 内置对象
+
+```
+var  pi = 3.14;
+var num = new Number(3.14);
+var num = Number(3.14);
+```
