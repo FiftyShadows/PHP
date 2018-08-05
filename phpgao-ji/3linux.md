@@ -25,3 +25,5 @@
 - 文件内容查看： head, tail, less, more
 
 - 文件处理： touch, unlink, rename, ln, cat
+
+- 目录操作： cd, mv, rm, pwd, tree, cp, ls
