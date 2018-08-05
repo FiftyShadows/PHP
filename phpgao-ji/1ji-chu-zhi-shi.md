@@ -12,6 +12,8 @@
 
 - `var_dump(memory_get_usage())`
 
+- xdebug_debug_zval('a');
+
 ```php
 $a = range(0, 1000);
 
@@ -21,3 +23,6 @@ $a = range(0, 1000);
 ```
 
 ![](/assets/360截图18430707394954.png)
+
+
+## 常量及数据类型
