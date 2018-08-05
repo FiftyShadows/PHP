@@ -358,8 +358,35 @@ echo mgFunc();
 
 - require在出错时产生`E_COMPILE_ERROR`级别的错误。将导致脚本终止而include只产生警告(E_WARNING)，脚本会继续运行。
 
+- `require(include)/require_one(include_once)`唯一区别是PHP会检查该文件是否已经被包含过，如果是则不会再次包含。
 
 
+
+## 时间日期函数
+
+- `date(), strtotime(), mktime(), time(), microtime(), date_default_timezone_set()`
+
+
+
+## IP处理函数
+
+- `if2long(), long2ip()`
+
+
+
+## 打印处理
+
+- `print(), printf(), print_r(), echo, sprintf(), var_dump(), var _export()`
+
+- print只能打印一个，echo能打印多个，效率更高
+
+- printf会根据格式进行输出，输出到缓存区，sprintf会返回不会输出
+
+- `print_r`会将数组、对象格式化好并打印，false不会打印出来，true的打印是1
+
+- `var_dump`会把每个值得类型显示出来，建议使用`var_dump`
+
+- `var_export`($xx, true)不打印，只返回，false时打印，不反悔
 
 
 
