@@ -1,4 +1,8 @@
+可变函数：函数名称可以用变量进行处理
+
 变量不赋值，默认为NULL
+
+
 
 ## 什么是引用变量
 
@@ -386,7 +390,82 @@ echo mgFunc();
 
 - `var_dump`会把每个值得类型显示出来，建议使用`var_dump`
 
-- `var_export`($xx, true)不打印，只返回(符合php语法结构)，false时打印，不返回
+- `var_export`($xx, true)不打印，返回(符合php语法结构)；false时打印，不返回
+
+
+
+
+## 序列化及反序列化函数
+
+- `serialize(), unserialize()`
+
+
+
+## 字符串处理函数
+
+- `implode(), explode(), join(), strrev(), trim(), ltrim(), rtrim(), strstr(), number_format()...`
+
+
+
+## 数组处理函数
+
+- `array_rand(), array_keys(), array_values(), array_diff(), array_intersect(), array_merge(), array_shift(), array_unshift(), array_pop(), array_push(), sort()...`
+
+![](/assets/360截图177104097694126.png)
+
+
+
+
+## 正则表达式
+
+![](/assets/360截图17290507759292.png)
+
+- 后向引用
+
+![](/assets/360截图17571113267773.png)
+
+- 贪婪模式
+
+![](/assets/360截图18010806665483.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
