@@ -428,12 +428,9 @@ echo mgFunc();
 
 ![](/assets/360截图18010806665483.png)
 
-- 正则表达式PCRE函数： `preg_match(), preg_match_all(), preg_replace(), preg_split()`
+![](/assets/360截图17571117497889.png)
 
-- 中文匹配：UTF-8汉字编码范围是`0x4e00-0x9fa5`，在ANSI(gb2312)环境下，0xb0-0xf7，0xa1-0xfe
-
-
-
+![](/assets/360截图17980102468475.png)
 
 
 
