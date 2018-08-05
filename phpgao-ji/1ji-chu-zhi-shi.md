@@ -102,6 +102,24 @@ else{
 
 
 
+#### 数组类型 -- 超全局数组
+
+- `$GLOABALS, $_GET, $_POST, $_REQUEST, $_SESSION, $_COOKIE, $_SERVER, $_FILES, $_ENV`
+
+```php
+$_SERVER['SERVER_ADDR'];            //服务器端IP地址
+$_SERVER['SERVER_NAME'];            //服务器名称
+$_SERVER['REQUEST_TIME'];           //请求时间
+$_SERVER['QUERY_STRING'];           //请求参数
+$_SERVER['HTTP_REFERER'];           //上级请求页面
+$_SERVER['HTTP_USER_AGENT'];        //请求头用户信息
+$_SERVER['REMOTE_ADDR'];            //客户端IP地址
+$_SERVER['REQUEST_URI'];            //URI
+$_SERVER['PATH_INFO'];              //路由
+```
+
+
+
 
 
 
