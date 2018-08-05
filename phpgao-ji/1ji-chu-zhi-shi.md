@@ -356,7 +356,7 @@ echo mgFunc();
 
 - 加载过程中未找到文件则include结构会发出一条警告；这一点和require不同，后者会发出一个致命错误。
 
-- require在出错时产生E_COMPILE_ERROR级别的错误。将导致脚本终止而include只产生警告(E_WARNING)，脚本会继续运行。
+- require在出错时产生`E_COMPILE_ERROR`级别的错误。将导致脚本终止而include只产生警告(E_WARNING)，脚本会继续运行。
 
 
 
