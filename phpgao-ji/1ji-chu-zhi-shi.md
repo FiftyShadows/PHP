@@ -386,7 +386,7 @@ echo mgFunc();
 
 - `var_dump`会把每个值得类型显示出来，建议使用`var_dump`
 
-- `var_export`($xx, true)不打印，只返回，false时打印，不返回
+- `var_export`($xx, true)不打印，只返回(符合php语法结构)，false时打印，不返回
 
 
 
