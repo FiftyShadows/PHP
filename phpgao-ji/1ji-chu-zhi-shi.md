@@ -451,6 +451,25 @@ echo mgFunc();
 
 - 文件指针： ftell(), fseek(), rewind()
 
+```php
+//在文件开头加入Hello world
+
+$file = './hello.txt';
+
+$handle = fopen($file, 'r');
+
+$content = fread($handle, filesize($file));
+
+$content = 'Hello world.' . $content;
+
+fclose($handle);
+
+$handle = fopen($file, 'w');
+
+fwrite($handle, $content);
+
+fclose($handle);
+```
 
 
 
