@@ -179,12 +179,30 @@ $_SERVER['PATH_INFO'];              //路由
 
  ||和&&与or和and的优先级不同
 
+```php
+$a = 0;
+$b = 0;
+
+if($a = 3 > 0 || $b = 3 > 0){
+    var_dump($a, $b);
+    exit;
+    $a++;
+    $b++;
+    echo $a. "\n";
+    echo $b. "\n";
+}
+```
 
 
+## 流程控制
 
+#### 遍历数组的三种方式及各自区别
 
+- for循环、 while、 do... while
 
+- foreach循环
 
+- while、 list()、 each()组合循环
 
 
 
