@@ -274,7 +274,7 @@ mgfunc();
 ```php
 function mgFunc()
 {
-    Static $a = 1;
+    static $a = 1;
     echo $a++;
 }
 
@@ -318,7 +318,45 @@ echo $a;
 
 
 
+## 函数的引用返回
 
+- 从函数返回一个引用，必须在函数声明和指派返回值给一个变量时都是用引用运算符& 
+
+```php
+function &mgFunc()
+{
+    static $b = 10;
+    return $b;
+}
+
+$a = mgFunc();
+
+$a = 100;
+
+echo mgFunc();
+
+$a = &mgFunc();
+
+$a = 100;
+
+echo mgFunc();
+```
+
+
+
+## 外部文件的导入
+
+- include/require语句包含并运行指定文件
+
+- 如果给出路径名，按照路径来查找，否则从include_path中查找
+
+- 如果include_path中也没有，则从调用脚本文件所在的目录和当前工作目录下寻找
+
+- 当一个文件被包含时，其中所包含的代码继承了include所在行的变量范围
+
+- 加载过程中未找到文件则include结构会发出一条警告；这一点和require不同，后者会发出一个致命错误。
+
+- require在出错时产生E_COMPILE_ERROR级别的错误。将导致脚本终止而include只产生警告(E_WARNING)，脚本会继续运行。
 
 
 
