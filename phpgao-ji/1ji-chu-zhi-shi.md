@@ -177,7 +177,7 @@ $_SERVER['PATH_INFO'];              //路由
 
 #### 短路作用
 
- ||和&&与or和and的优先级不同
+- ||和&&与or和and的优先级不同
 
 ```php
 $a = 0;
@@ -196,6 +196,7 @@ if($a = 3 > 0 || $b = 3 > 0){
 
 ## 流程控制
 
+
 #### 遍历数组的三种方式及各自区别
 
 - for循环、 while、 do... while
@@ -203,6 +204,10 @@ if($a = 3 > 0 || $b = 3 > 0){
 - foreach循环
 
 - while、 list()、 each()组合循环
+
+- for魂环只能遍历索引数组，foreach可以遍历索引和关联数组，联合使用list()，each()和while循环同样可以遍历索引和关联数组。
+
+- while、 list()、 each()组合不会reset()
 
 
 
