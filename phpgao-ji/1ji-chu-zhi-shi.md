@@ -627,6 +627,29 @@ loopDir($dir);
 
 
 
+## HTTPS的工作原理
+
+- https是一种基于ssl/tls的http协议，所有的http数据都是在ssl/tls协议封装之上传输的。
+
+- https协议在http协议的基础上，添加了ssl/tls握手以及数据加密传输，也属于应用层协议。
+
+
+
+## 常见网络协议含义及端口
+
+- FTP端口21
+
+- Telnet远程登录23
+
+- SMTP简单邮件传输协议25
+
+- POP3接收邮件110
+
+- HTTP
+
+- DNS域名解析协议53
+
+
 
 
 
