@@ -494,11 +494,115 @@ function loopDir($dir)
 loopDir($dir);
 ```
 
-##
+## 
 
 ---
 
 ## 回话控制技术
+
+
+#### Cookie
+
+- setcookie($name, $value, $expire, $path, $domain, $secure);
+
+- $_COOKIE
+
+- setcookie
+
+- setcookie($name, '', time() - 1000);    删除cookie
+
+
+
+#### Session
+
+- session基于cookie
+
+- 禁用了cookie，客户度发送session_id
+
+- session信息存储在服务器当中的文件里
+
+
+
+#### session操作
+
+- session_start()
+
+- $_SESSION
+
+- $_SESSION = [];    清空session
+
+- session_destroy()    删除session文件
+
+
+
+#### session配置
+
+- `session.auto_start`    是否自动开启`session_start`
+
+- `session.cookie_domain`    存储session的cookie有效域名
+
+- `session.cookie_lifetime`
+
+- `session.cookie_path`
+
+- `session.name`    sessid    SID
+
+- `session.save_path`
+
+- `session.use_cookies`
+
+- `session.use_trans_sid`
+
+- `session.gc_probability = 1`
+
+- `session.gc_divisor = 100`
+
+- `session.gc_maxlifetime = 1440`
+
+- `session.save_handler`
+
+- session存储    `session_set_save_handler()`    MySQL、Memcache、Redis等
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
