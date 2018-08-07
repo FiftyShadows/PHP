@@ -15,5 +15,5 @@
   * [3.Linux](phpgao-ji/3linux.md)
   * [4.MySQL数据库](phpgao-ji/4mysqlshu-ju-ku.md)
   * [5.程序设计](phpgao-ji/5cheng-xu-she-ji.md)
-  * 7.算法
+  * [7.算法](phpgao-ji/7suan-fa.md)
 
