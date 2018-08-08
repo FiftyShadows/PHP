@@ -22,3 +22,37 @@ $result = Db::query('select * from banner_item where banner_id = ?', [$id]);
 - 简化sql编写，简洁
 
 - 不用关心具体实现，跨数据库一致性。适配多种数据库的连接和操作。
+
+
+
+## 封装性
+
+- 隐藏细节和差异，调用更加方便
+
+
+
+## 查询构造器封装了对不同数据库的操作
+
+
+
+
+## find()只返回一条数据库记录，一位数组。select()返回所有满足查询条件的记录。
+
+- `$result = Db::table('banneritem')->where('banner_id', '=', $id)->select();`
+
+
+
+## Db辅助方法(链式方法)
+
+- 辅助方法并不会真正的执行sql语句    table where
+
+- 返回query对象
+
+- 相同的链式方法调用顺序对结果不会有影响，相同的可能会有影响
+
+
+
+
+## 数据库执行方法(select, update, delete, insert)
+
+- 执行之后状态会被清除
