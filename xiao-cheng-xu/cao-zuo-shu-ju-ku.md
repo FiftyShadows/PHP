@@ -56,3 +56,79 @@ $result = Db::query('select * from banner_item where banner_id = ?', [$id]);
 ## 数据库执行方法(select, update, delete, insert)
 
 - 执行之后状态会被清除
+
+
+
+## where(字段名，表达式，查询条件)
+
+- 等号可省略
+
+
+
+## where表达式、数组法（安全性问题，不够灵活）、闭包
+
+```php
+//闭包
+$result = Db::table('banner_item')
+    ->where(function ($query) use ($id){
+        $query>where('banner_id', '=', $id);
+    })
+    ->select();
+```
+
+
+
+## 查看构造器原生sql
+
+- fetchSql()
+
+
+
+## sql记录日志
+
+- database.php    'debug' => true
+
+- config.php    'app_debug' => true    'level' => ['sql']    'type' => 'File'
+
+
+
+## Object Relation Mapping对象关系映射
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
