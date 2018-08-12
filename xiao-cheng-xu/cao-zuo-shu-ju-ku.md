@@ -1,3 +1,6 @@
+最重要的是可读性，不是性能。
+
+
 $result = Db::query('select * from banner_item where banner_id = ?', [$id]);
 
 
