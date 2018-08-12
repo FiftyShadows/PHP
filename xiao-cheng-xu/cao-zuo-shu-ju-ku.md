@@ -98,7 +98,15 @@ $result = Db::table('banner_item')
 
 ## 默认输出类型
 
-- 'default_return_type' => 'json'
+- `'default_return_type' => 'json'`
+
+
+
+## php think make:model api/BannerItem
+
+
+
+
 
 
 
