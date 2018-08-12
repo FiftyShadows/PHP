@@ -149,7 +149,26 @@ $banner = $banner->get();
 
 
 
+## 关联模型
 
+```php
+class Banner extends Model
+{
+
+    public function items(){
+        return $this->hasMany('BannerItem', 'banner_id', 'id');
+    }
+
+}
+```
+
+
+
+## 嵌套关联关系
+
+```php
+$banner = BannerModel::with(['items', 'items.img'])->find($id);
+```
 
 
 
