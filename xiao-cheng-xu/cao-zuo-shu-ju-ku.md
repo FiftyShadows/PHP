@@ -193,7 +193,22 @@ $banner->visible(['id']);
 
 
 
+## 在模型内部隐藏字段
 
+```
+protected $hidden = ['update__time', 'delete_time'];
+
+
+protected $visible = [];
+```
+
+
+
+## 图片资源URL配置
+
+- public是公开目录，不需要权限控制。放在其他目录下，访问不了。
+
+- extra下的配置文件会自动加载
 
 
 
