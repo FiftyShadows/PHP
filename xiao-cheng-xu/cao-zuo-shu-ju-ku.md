@@ -112,6 +112,38 @@ $result = Db::table('banner_item')
 
 
 
+## 调用方式
+
+```
+//第一种方式
+$banner = BannerModel::get($id);
+
+
+//第二种方式
+$banner = new BannerModel();
+$banner = $banner->get();
+```
+
+
+
+
+## 几种查询动词的总结与ORM性能问题的探讨
+
+- get, find, all, select
+
+
+
+#### 四个原则
+
+- 模型和数据库访问层是两个不同的概念
+
+- 不能因为模型的性能稍差，而放弃使用模型
+
+- 用面向对象的思维使用和设计模型
+
+- 模型底层仍然是数据库访问抽象层
+
+
 
 
 
