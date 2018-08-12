@@ -172,6 +172,25 @@ $banner = BannerModel::with(['items', 'items.img'])->find($id);
 
 
 
+## 隐藏模型字段
+
+```php
+//通过操作数组隐藏
+$banner = BannerModel::getBannerByID($id);
+$data = $banner->toArray();
+unset($data['delete_time']);
+
+
+//通过模型方法隐藏
+$banner = BannerModel::getBannerByID($id);
+$banner->hidden(['delete_time']);
+
+
+//通过模型方法显示
+$banner = BannerModel::getBannerByID($id);
+$banner->visible(['id']);
+```
+
 
 
 
