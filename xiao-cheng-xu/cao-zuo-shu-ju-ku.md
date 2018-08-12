@@ -106,6 +106,12 @@ $result = Db::table('banner_item')
 
 
 
+## 数据库表名和model类名不一定一一对应
+
+- `protected $table = 'banner_item';`
+
+
+
 
 
 
