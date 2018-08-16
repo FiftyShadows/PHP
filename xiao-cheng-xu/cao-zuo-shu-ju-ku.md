@@ -214,6 +214,12 @@ protected $visible = [];
 
 - public是公开目录，不需要权限控制。放在其他目录下，访问不了。
 
+
+
+
+
+## 读取器
+
 - 通过modele读取器方法getUrlArr，返回拼接的字符串    格式为：get[字段名]Arr
 
 
