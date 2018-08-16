@@ -206,9 +206,16 @@ protected $visible = [];
 
 ## 图片资源URL配置
 
+- from1存储在本地    from2存储在云端
+
+- application/extra/目录下可以定义自己的配置文件；会自动加载
+
+- 通过config('setting.img_prefix')读取配置
+
 - public是公开目录，不需要权限控制。放在其他目录下，访问不了。
 
-- extra下的配置文件会自动加载
+- 通过modele读取器方法getUrlArr，返回拼接的字符串    格式为：get[字段名]Arr
+
 
 
 
