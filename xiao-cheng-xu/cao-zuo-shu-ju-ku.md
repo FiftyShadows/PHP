@@ -249,7 +249,7 @@ class Image extends Model
 class BaseModel extends Model
 {
     //
-    protected function getUrlAttr($value, $data){
+    protected function prefixImgUrl($value, $data){
         $finalUrl = $value;
         if($data['from'] == 1){
             $finalUrl = config('setting.imgprefix').$finalUrl;
@@ -265,7 +265,7 @@ class Image extends BaseModel
     //
     protected function getUrlAttr($value, $data)
     {
-        return $this->getUrlAttr($value, $data);
+        return $this->prefixImgUrl($value, $data);
     }
 
 
