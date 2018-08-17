@@ -1,3 +1,7 @@
+php think make:model api/BaseModel
+
+
+
 快速移除无用的命名空间 ctrl + alt + O
 
 Directories 配置根命名空间自动补全
