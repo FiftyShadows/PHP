@@ -411,49 +411,49 @@ echo mgFunc();
 
 ## 文件读取/写入操作
 
-- fopen()函数：用来打开一个文件，打开时需要指定打开模式
+* fopen\(\)函数：用来打开一个文件，打开时需要指定打开模式
 
-    - 打开模式：r/r+, w/w+, a/a+, x/x+, b, t
+  * 打开模式：r/r+, w/w+, a/a+, x/x+, b, t
 
-- 写入函数： `fwrite(), fputs()`
+* 写入函数： `fwrite(), fputs()`
 
-- 读取函数： `fread(), fgets()获取一行, fgetc()获取一个字符`
+* 读取函数： `fread(), fgets()获取一行, fgetc()获取一个字符`
 
-- 关闭文件函数： `fclose()`
+* 关闭文件函数： `fclose()`
 
-- 不需要fopen()打开的函数： `file_get_contents(), file_put_contents()`
+* 不需要fopen\(\)打开的函数： `file_get_contents(), file_put_contents()`
 
-- 其他读取函数： `file()将整个文件读取到数组里面去, readfile()读取并输出到缓冲区`
+* 其他读取函数： `file()将整个文件读取到数组里面去, readfile()读取并输出到缓冲区`
 
-- 访问远程文件： php.ini开启`allow_url_fopen`，HTTP协议连接只能使用只读，FTP协议可以使用只读或者只写
+* 访问远程文件： php.ini开启`allow_url_fopen`，HTTP协议连接只能使用只读，FTP协议可以使用只读或者只写
 
-- 目录相关： `basename(), dirname(), pathinfo()`
+* 目录相关： `basename(), dirname(), pathinfo()`
 
-- 目录读取： `opendir(), readdir(), closedir(), rewinddir()`
+* 目录读取： `opendir(), readdir(), closedir(), rewinddir()`
 
-- 目录删除： `rmdir()`
+* 目录删除： `rmdir()`
 
-- 目录创建： `mkdir()`
+* 目录创建： `mkdir()`
 
-- 文件大小： `filesize()`
+* 文件大小： `filesize()`
 
-- 磁盘大小： `disk_free_space()剩余空间, disk_total_space()总共大小`
+* 磁盘大小： `disk_free_space()剩余空间, disk_total_space()总共大小`
 
-- 文件拷贝： copy()
+* 文件拷贝： copy\(\)
 
-- 删除文件： unlink()
+* 删除文件： unlink\(\)
 
-- 文件类型(file/dir)： filetype() 
+* 文件类型\(file/dir\)： filetype\(\)
 
-- 重命名文件或者目录(移动位置)： rename()
+* 重命名文件或者目录\(移动位置\)： rename\(\)
 
-- 文件截取： ftruncate()
+* 文件截取： ftruncate\(\)
 
-- 文件属性： `file_exists(), is_readable(), is_writable(), is_executable(), filectime(), fileatime(), filetime()`
+* 文件属性： `file_exists(), is_readable(), is_writable(), is_executable(), filectime(), fileatime(), filetime()`
 
-- 文件锁： flock()
+* 文件锁： flock\(\)
 
-- 文件指针： ftell(), fseek(), rewind()
+* 文件指针： ftell\(\), fseek\(\), rewind\(\)
 
 ```php
 //在文件开头加入Hello world
@@ -500,219 +500,131 @@ loopDir($dir);
 
 ---
 
-## 回话控制技术
-
+## 会话控制技术
 
 #### Cookie
 
-- setcookie($name, $value, $expire, $path, $domain, $secure);
+* setcookie\($name, $value, $expire, $path, $domain, $secure\);
 
-- $_COOKIE
+* $\_COOKIE
 
-- setcookie
+* setcookie
 
-- setcookie($name, '', time() - 1000);    删除cookie
-
-
+* setcookie\($name, '', time\(\) - 1000\);    删除cookie
 
 #### Session
 
-- session基于cookie
+* session基于cookie
 
-- 禁用了cookie，客户度发送session_id
+* 禁用了cookie，客户度发送session\_id
 
-- session信息存储在服务器当中的文件里
-
-
+* session信息存储在服务器当中的文件里
 
 #### session操作
 
-- session_start()
+* session\_start\(\)
 
-- $_SESSION
+* $\_SESSION
 
-- $_SESSION = [];    清空session
+* $\_SESSION = \[\];    清空session
 
-- session_destroy()    删除session文件
-
-
+* session\_destroy\(\)    删除session文件
 
 #### session配置
 
-- `session.auto_start`    是否自动开启`session_start`
+* `session.auto_start`    是否自动开启`session_start`
 
-- `session.cookie_domain`    存储session的cookie有效域名
+* `session.cookie_domain`    存储session的cookie有效域名
 
-- `session.cookie_lifetime`
+* `session.cookie_lifetime`
 
-- `session.cookie_path`
+* `session.cookie_path`
 
-- `session.name`    sessid    SID
+* `session.name`    sessid    SID
 
-- `session.save_path`
+* `session.save_path`
 
-- `session.use_cookies`
+* `session.use_cookies`
 
-- `session.use_trans_sid`
+* `session.use_trans_sid`
 
-- `session.gc_probability = 1`
+* `session.gc_probability = 1`
 
-- `session.gc_divisor = 100`
+* `session.gc_divisor = 100`
 
-- `session.gc_maxlifetime = 1440`
+* `session.gc_maxlifetime = 1440`
 
-- `session.save_handler`
+* `session.save_handler`
 
-- session存储    `session_set_save_handler()`    MySQL、Memcache、Redis等
-
-
+* session存储    `session_set_save_handler()`    MySQL、Memcache、Redis等
 
 ## PHP类权限控制修饰符
 
-- public, protected, private
-
-
+* public, protected, private
 
 ## 面向对象的继承
 
-- 单一继承
+* 单一继承
 
-- 方法重写
-
-
+* 方法重写
 
 ## 面向对象的多态
 
-- 抽象类的定义
+* 抽象类的定义
 
-- 接口的定义
-
-
+* 接口的定义
 
 ## 魔术方法
 
 ![](/assets/360截图162511108385115.png)
 
-
-
 ## 设计模式
 
 ![](/assets/360截图17290429272758.png)
-
-
 
 ## 网络协议
 
 ![](/assets/360截图188407158511581.png)
 
-
-
 ## get和post请求方法的区别
 
-- get在后退或刷新的时候没有变化，post的数据会被重新提交
+* get在后退或刷新的时候没有变化，post的数据会被重新提交
 
-- get可以被收藏为书签，post不能被收藏为书签
+* get可以被收藏为书签，post不能被收藏为书签
 
-- get请求能够被浏览器缓存，而post请求不能被浏览器缓存
+* get请求能够被浏览器缓存，而post请求不能被浏览器缓存
 
-- get的请求编码类型是urlencoded；post还有json
+* get的请求编码类型是urlencoded；post还有json
 
-- get在历史记录中保存参数
+* get在历史记录中保存参数
 
-- get有数据长度限制，最大2048字符; post没有限制
+* get有数据长度限制，最大2048字符; post没有限制
 
-- get只允许ascⅡ
+* get只允许ascⅡ
 
-- post更安全
-
-
+* post更安全
 
 ## HTTPS的工作原理
 
-- https是一种基于ssl/tls的http协议，所有的http数据都是在ssl/tls协议封装之上传输的。
+* https是一种基于ssl/tls的http协议，所有的http数据都是在ssl/tls协议封装之上传输的。
 
-- https协议在http协议的基础上，添加了ssl/tls握手以及数据加密传输，也属于应用层协议。
-
-
+* https协议在http协议的基础上，添加了ssl/tls握手以及数据加密传输，也属于应用层协议。
 
 ## 常见网络协议含义及端口
 
-- FTP端口21
+* FTP端口21
 
-- Telnet远程登录23
+* Telnet远程登录23
 
-- SMTP简单邮件传输协议25
+* SMTP简单邮件传输协议25
 
-- POP3接收邮件110
+* POP3接收邮件110
 
-- HTTP
+* HTTP
 
-- DNS域名解析协议53
-
-
+* DNS域名解析协议53
 
 ## PHP常见配置项
 
 ![](/assets/360截图1847012310610788.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
