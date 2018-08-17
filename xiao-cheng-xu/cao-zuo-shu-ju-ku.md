@@ -168,6 +168,7 @@ class Banner extends Model
 
 ```php
 $banner = BannerModel::with(['items', 'items.img'])->find($id);
+//items是banner的关联；items.img是嵌套表的关联
 ```
 
 
@@ -221,6 +222,20 @@ protected $visible = [];
 ## 读取器
 
 - 通过modele读取器方法getUrlArr，返回拼接的字符串    格式为：get[字段名]Arr
+
+```
+class Image extends Model
+{
+    //
+    public function getUrlAttr($value, $data){
+        $finalUrl = $value;
+        if($data['from'] == 1){
+            $finalUrl = config('setting.imgprefix').$finalUrl;
+        }
+        return $finalUrl;
+    }
+}
+```
 
 
 
