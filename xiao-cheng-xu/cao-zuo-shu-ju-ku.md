@@ -239,6 +239,45 @@ class Image extends Model
 
 
 
+## 通过自定义模型基类的方式使每个img模型继承读取器方法
+
+- 增加可维护性
+
+- 并不是所有的url字段都需要修改；所以基类下的public function getUrlAttr不合适，可以定义为protected function getUrlAttr在子类的读取器中调用
+
+```
+class BaseModel extends Model
+{
+    //
+    protected function getUrlAttr($value, $data){
+        $finalUrl = $value;
+        if($data['from'] == 1){
+            $finalUrl = config('setting.imgprefix').$finalUrl;
+        }
+        return $finalUrl;
+    }
+}
+
+
+
+class Image extends BaseModel
+{
+    //
+    protected function getUrlAttr($value, $data)
+    {
+        return $this->getUrlAttr($value, $data);
+    }
+
+
+}
+
+```
+
+
+
+
+
+
 
 
 
