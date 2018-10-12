@@ -1,3 +1,15 @@
+## 三种查询数据库的方式
+
+- 原生sql语句
+
+    - `Db::query('select * from banner_item where banner_id=?', [$id])`
+
+- 构造器
+
+- 模型 关联模型
+
+
+
 最重要的是可读性，不是性能。
 
 
