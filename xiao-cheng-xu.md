@@ -1,3 +1,9 @@
+## phpinfo()
+
+- 在文件中调用phpinfo会返回php的信息
+
+
+
 php think make:model api/BaseModel
 
 
@@ -118,7 +124,7 @@ exit;
 
 
 
-####缺点
+#### PATH_INFO缺点
 
 - 太长
 
@@ -131,14 +137,25 @@ exit;
 
 
 
-application/config.php    app_namespace
+## 自动检测命名空间
 
-自动命名空间    设置 - directories - application -sources - app
+- 修改应用程序根命名空间名 application/config.php app_namespace
+
+- 自动命名空间    设置 - directories - application -sources - app
+
+
+
+
+## 关于模块
+
+- 中小项目单一模块
 
 
 
 
 ##配置虚拟域名
+
+- 将localhost/zerg/public/index.php/simple/test/hello隐藏为z.cn/simple/test/hello
 
 D:\Server\xampp\apache\conf\extra
 
@@ -163,15 +180,13 @@ hosts
 
 
 
-##apache服务器重写规则
-
+##apache服务器重写规则隐藏服务器入口文件路径
 
 
 
 ##localhost跳转的问题
 
 - 给localhost配置虚拟域名
-
 
 
 
@@ -190,7 +205,7 @@ hosts
 
 - 配置式：router.php
 
-- 动态注册
+- 动态注册(主要)
 
 - 一旦给操作方法定义了路由之后，原有的pathinfo url就会失效
 
@@ -201,9 +216,9 @@ hosts
 
 - PATH_INFO
 
-- 混合模式
+- 混合模式(PATH_INFO + 路由)，一个操作方法只能有一种方式    默认是混合模式`url_path_on`
 
-- 强制使用路由模式
+- 强制使用路由模式    `url_roote_must`标准api编写最好开启强制路由
 
 
 
