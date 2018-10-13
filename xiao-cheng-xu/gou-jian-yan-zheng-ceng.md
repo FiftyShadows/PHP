@@ -37,6 +37,8 @@ public function getBanner($id){
 
 ## Vlidate类有batch方法，用于批量验证
 
+- 将所有参数都验证一遍，返回的错误是一个数组
+
 - 'num' => 'in:1,2,3'
 
 
