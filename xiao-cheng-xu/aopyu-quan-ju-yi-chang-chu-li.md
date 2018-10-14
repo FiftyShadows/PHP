@@ -30,3 +30,12 @@
 - config('app_debug')    助手函数
 
 - 不要在config里保存数据
+
+
+
+
+## app_debug开启时
+
+- 性能差
+
+- 暴露错误信息
