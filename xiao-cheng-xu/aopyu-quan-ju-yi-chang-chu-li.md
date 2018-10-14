@@ -13,3 +13,20 @@
 
 - \Exception是think\Exception和HttpException的基类
 
+
+
+## 在 ExceptionHandler 类中加入 recordErrorLog 方法
+
+- Log::init
+
+- Log::record($e->getErrorMessage(), 'error')
+
+
+
+## 通过配置文件判断向客户端返回json还是错误页面
+
+- Config::get('app_debug');    类静态方法
+
+- config('app_debug')    助手函数
+
+- 不要在config里保存数据
