@@ -4,17 +4,29 @@
 
     - `Db::query('select * from banner_item where banner_id=?', [$id])`
 
-- 构造器
+- 查询构造器
 
     - `Db::table('banner_item')->where('banner_id', '=', $id)->select()`
     
-    - table,where返回的是query对象，用于链式操作
+    - table,where(辅助方法/链式方法)返回的是query对象，用于链式操作
     
-    - 只有使用find,select才会查出最终结果
+        - 只能在真正的执行方法之前调用
+        
+        - 不同链式方法没有先后顺序
+        
+        - 相同的链式方法位置关系可能有影响
+        
+        - 非链式调用Db::table('banner_item'); Db::where(); Db::select();
+                
+    - 只有使用find,select才会生成sql语句执行调用，查出最终结果
+    
+        - 无状态
     
     - find只返回一条数据
     
     - select返回所有
+    
+    - update,delete,insert
 
 - 模型 关联模型
 
@@ -88,15 +100,17 @@ $result = Db::query('select * from banner_item where banner_id = ?', [$id]);
 
 - 等号可省略
 
+- 忽略eq大小写
+
 
 
 ## where表达式、数组法（安全性问题，不够灵活）、闭包
 
 ```php
-//闭包
+//闭包,use传递变量
 $result = Db::table('banner_item')
-    ->where(function ($query) use ($id){
-        $query>where('banner_id', '=', $id);
+    ->where(function ($query) use ($id){    
+        $query->where('banner_id', '=', $id)->where(xxx);
     })
     ->select();
 ```
@@ -107,13 +121,17 @@ $result = Db::table('banner_item')
 
 - fetchSql()
 
+- sql记录日志
+
 
 
 ## sql记录日志
 
-- database.php    'debug' => true
+- database.php    'debug' => true    config.php    'app_debug' => true    'level' => ['sql']    'type' => 'File'
 
-- config.php    'app_debug' => true    'level' => ['sql']    'type' => 'File'
+- 在入口文件出初始化Log记录sql
+
+- 生产环境不要开启，写文件耗费服务器性能。处理bug可以临时开启 
 
 
 
@@ -139,6 +157,8 @@ $result = Db::table('banner_item')
 
 ## 调用方式
 
+- 静态方法调用更加便捷
+
 ```
 //第一种方式
 $banner = BannerModel::get($id);
@@ -154,7 +174,9 @@ $banner = $banner->get();
 
 ## 几种查询动词的总结与ORM性能问题的探讨
 
-- get, find, all, select
+- get, find    只能查询到一条数据库记录
+
+- all, select
 
 
 
