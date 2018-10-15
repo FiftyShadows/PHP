@@ -18,6 +18,8 @@
 
 * \Exception是think\Exception和HttpException的基类
 
+- render参数接受\Exception类型的，反则HttpException会报错
+
 
 
 
