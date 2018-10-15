@@ -6,6 +6,16 @@
 
 - 构造器
 
+    - `Db::table('banner_item')->where('banner_id', '=', $id)->select()`
+    
+    - table,where返回的是query对象，用于链式操作
+    
+    - 只有使用find,select才会查出最终结果
+    
+    - find只返回一条数据
+    
+    - select返回所有
+
 - 模型 关联模型
 
 
