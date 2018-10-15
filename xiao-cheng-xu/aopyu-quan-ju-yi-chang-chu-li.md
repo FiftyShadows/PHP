@@ -1,3 +1,11 @@
+## 全局异常处理的实现
+
+- ExceptionHandler定义对异常的处理(render)，在config.php中设置'exception_handle'为ExceptionHandler
+
+- 定义每个业务的异常处理类，例BannerMissException -> BaseException -> Exception
+
+
+
 关闭app\_debug不会给出错误的详细信息
 
 ## 异常分类
