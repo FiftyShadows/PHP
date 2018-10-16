@@ -195,6 +195,12 @@ $banner = $banner->get();
 
 ## 关联模型
 
+- with可以是字符串也可以是数组
+
+- hasMany是一对多关系
+
+- belongsTo是一对一关系，可省略后两个参数(有外键)    hasOne(没有外键)    分别表示主从关系
+
 ```php
 class Banner extends Model
 {
@@ -218,6 +224,8 @@ $banner = BannerModel::with(['items', 'items.img'])->find($id);
 
 
 ## 隐藏模型字段
+
+- 操作数组的方式 $data = $banner->toArray;    unset($data['delete_time'])
 
 ```php
 //通过操作数组隐藏
@@ -265,7 +273,7 @@ protected $visible = [];
 
 ## 读取器
 
-- 通过modele读取器方法getUrlArr，返回拼接的字符串    格式为：get[字段名]Arr
+- 通过modele读取器方法getUrlArr，返回拼接的字符串    固定格式为：get[字段名]Arr
 
 ```
 class Image extends Model
@@ -280,6 +288,15 @@ class Image extends Model
     }
 }
 ```
+
+
+
+## 给每一个增加url读取器
+
+- 公共函数
+
+- Model基类
+
 
 
 
@@ -318,8 +335,6 @@ class Image extends BaseModel
 ```
 
 
-
-
 ## 两个表之间的多对多关系
 
 - 推荐用第三张表表示
@@ -329,11 +344,23 @@ class Image extends BaseModel
 
 
 
+## 动态参数路由
+
+`Route::rule('api/:version/banner/:id', 'api/:version.banner/getBanner');`
 
 
 
+## 数据库一对一的主从关系
+
+- belongsTo可省略后两个参数(有外键)    
+
+- hasOne(没有外键)
 
 
+
+## 通过在BaseException中定义通用的验证方法，达到复用
+
+- protected $message定义验证不通过的错误提示
 
 
 
