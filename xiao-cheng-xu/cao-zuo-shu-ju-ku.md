@@ -364,9 +364,18 @@ class Image extends BaseModel
 
 
 
+## 简单的业务可写在c层或m层，复杂的业务写在s层
 
 
 
+
+## 开启路由完整匹配
+
+- config.php    'route_complete_match'
+
+
+
+## 先定义关联关系，再在查询里使用关联关系
 
 
 
